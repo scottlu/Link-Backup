@@ -445,7 +445,7 @@ class Catalog:
 		    if md5hashes[n] != m.hexdigest():
 			verbose_log('dst: file changed during copy %s' % filelist[n][0])	
 			md5hashes[n] = m.hexdigest()
-			s[SIZE] = os.fstat(fd).st_size
+			s[SIZE] = os.stat(fd).st_size
 			if self.file_from_hashstat(md5hashes[n], s):
 			    verbose_log('dst: file already in catalog %s' % filelist[n][0])
 			    os.close(fd)
